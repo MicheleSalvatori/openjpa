@@ -88,19 +88,17 @@
             <!--
                 get the git revision number and set it in the git.revision setting - disabled for now
                 since we need to be able to build from sources zip (when there is no .git/config)
-            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
                 <executions>
                     <execution>
                         <id>set git version</id>
                         <phase>compile</phase>
                         <configuration>
                             <target>
-                                <!-- SVN would have appended 'M' to the end of the revision number if there were
+                                 SVN would have appended 'M' to the end of the revision number if there were
                                      uncommitted changes.  Git doesn't do that, so we have to work a bit to
-                                     emulate that behavior.  -->
+                                     emulate that behavior.  
                                 <echo>Determining if there are uncommitted changes...</echo>
                                 <exec outputproperty="git.diff.exitval" resultproperty="diff.state" failonerror="false" failifexecutionfails="false" executable="git">
                                     <arg line="diff --quiet HEAD" />
@@ -141,11 +139,11 @@ openjpa.enhancer.revision=${pcenhancer.git.revision}${uncommitted.changes}
                             </target>
                         </configuration>
                         <goals>
-                            <goal>run</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
+            -->
         </plugins>
     </build>
 </project>

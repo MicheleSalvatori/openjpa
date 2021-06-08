@@ -216,6 +216,8 @@
 			</build>
 		</profile>
 		
+		<!--It is necessary to compile with jdk8 for incompatibility with jdk successes (8+) of the class com.sun.beans.introspect.PropertyInfo.
+			But in travis config you need to specify jdk11 following sonarcloud policy updates (require jdk11 + now) -->
 		 <profile>
             <id>java11</id>
             <activation>
