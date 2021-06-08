@@ -181,7 +181,7 @@
 		<module>openjpa-kubernetes</module>
 		<module>openjpa</module>
 		<module>openjpa-project</module>
-		<module>openjpa-examples</module>
+	<!-- <module>openjpa-examples</module> -->
 		<module>openjpa-integration</module>
 		<module>openjpa-all</module>
 		<module>openjpa-tools</module>
@@ -222,7 +222,7 @@
             <id>java11</id>
             <activation>
                 <jdk>11</jdk>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <maven.compiler.release>8</maven.compiler.release>
