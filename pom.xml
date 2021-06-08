@@ -187,6 +187,7 @@
 		<module>openjpa-tools</module>
 		<module>openjpa-features</module>
 		<module>openjpa-junit5</module>
+		<module>my_tests</module>
 	</modules>
 
 	<profiles>
@@ -221,8 +222,8 @@
 		 <profile>
             <id>java11</id>
             <activation>
-                <jdk>11</jdk>
                 <activeByDefault>false</activeByDefault>
+                <jdk>11</jdk>
             </activation>
             <properties>
                 <maven.compiler.release>8</maven.compiler.release>
