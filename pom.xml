@@ -262,7 +262,7 @@
 						</executions>
 						<configuration>
 							<excludeSubProjects>false</excludeSubProjects>
-							<numUnapprovedLicenses>0</numUnapprovedLicenses>
+							<numUnapprovedLicenses>0</numUnapprovedLicenses>			<!-- Forse posso cambiare qui o aggiungere cartella da escludere -->
 							<excludes>
 								<!-- comments are usupported in services files -->
 								<exclude>**/javax.persistence.spi.PersistenceProvider</exclude>
@@ -1954,7 +1954,7 @@
 					</executions>
 				</plugin>
 				<plugin>
-					<groupId>org.apache.rat</groupId>
+					<groupId>org.apache.rat</groupId>					<!-- Forse posso cambiare il numero massimo di file senza licenza o aggiungere cartella da escludere -->
 					<artifactId>apache-rat-plugin</artifactId>
 					<version>0.12</version>
 				</plugin>
