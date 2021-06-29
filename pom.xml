@@ -99,17 +99,8 @@
 		<automatic-module-name>-SUBMODULES-NEED-TO-OVERRIDE-THIS-</automatic-module-name>
 		
 		
-		<sonar.projectKey>MicheleSalvatori:${project.groupId}:${project.artifactId}</sonar.projectKey>
-        <sonar.links.homepage>https://github.com/MicheleSalvatori/openjpa</sonar.links.homepage>
-        <sonar.links.ci>https://travis-ci.com/MicheleSalvatori/openjpa</sonar.links.ci>
-        <sonar.links.scm>https://github.com/MicheleSalvatori/openjpa</sonar.links.scm>
-        <sonar.links.issue>https://github.com/MicheleSalvatori/openjpa/issues</sonar.links.issue>
-        <aggregate.report.dir>mytests/target/site/jacoco-aggregate/jacoco.xml</aggregate.report.dir>
-        
-        <sonar.language>java</sonar.language>
-		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-		<sonar.junit.reportPaths>${project.build.directory}/surefire-reports</sonar.junit.reportPaths>
-		<sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+		
+		<aggregate.report.dir>mytests/target/site/jacoco-aggregate/jacoco.xml</aggregate.report.dir>
 		<redirectTestOutputToFile>true</redirectTestOutputToFile>
 
 	</properties>
