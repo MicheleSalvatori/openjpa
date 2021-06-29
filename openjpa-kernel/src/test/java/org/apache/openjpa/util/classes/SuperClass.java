@@ -1,0 +1,33 @@
+package org.apache.openjpa.util.classes;
+
+import java.awt.Component;
+import java.awt.List;
+
+import org.apache.openjpa.util.ImplHelper;
+
+@SuppressWarnings("serial")
+public class SuperClass extends List{
+	private int val;
+	
+	public SuperClass(String s) {}
+	
+	public SuperClass(Object s) {
+	}
+	
+	public SuperClass(List cls) {
+	}
+
+	public SuperClass(Component cls) {
+	}
+	
+	public int getVal() {
+		return this.val;
+	}
+	
+	
+	public static void main(String[] args) {
+		boolean result = ImplHelper.isAssignable(Component.class, List.class);
+		System.out.println(result);
+	}
+}
+

@@ -97,33 +97,46 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven.surefire.version}</version>
       </plugin>
-       <plugin>
-		<groupId>org.jacoco</groupId>
-		<artifactId>jacoco-maven-plugin</artifactId>
-		<version>${jacoco-maven-plugin.version}</version>
-		<executions>
-			<execution>
-				<goals>
-					<goal>prepare-agent</goal>
-				</goals>
-				<configuration>
-					<destFile>${project.build.directory}/jacoco.exec</destFile>
-					<propertyName>argLine</propertyName>
-				</configuration>
-			</execution>
-			<execution>
-				<id>report</id>
-				<phase>verify</phase>
-				<goals>
-					<goal>report</goal>
-				</goals>
-				<configuration>
-					<dataFile>${project.build.directory}/jacoco.exec</dataFile>
-					<outputDirectory>${project.reporting.outputDirectory}/jacoco</outputDirectory>
-				</configuration>
-			</execution>
-		</executions>
-      </plugin>
     </plugins>
     </build>
+    
+    <profiles>
+      <profile>
+            <id>pit-test</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.pitest</groupId>
+                        <artifactId>pitest-maven</artifactId>
+                        <version>1.5.2</version>
+                        <configuration>
+                       	 	<verbose>true</verbose>
+                            <targetClasses>
+                                <param>org.apache.openjpa.jdbc.identifier.DBIdentifierUtilImpl</param>
+                            </targetClasses>
+                            <targetTests>
+                                <param>org.apache.openjpa.jdbc.sql.identifier.AppendColumnsTest</param>
+                                <param>org.apache.openjpa.jdbc.sql.identifier.GenerateKeySequenceNameTest</param>
+                                <param>org.apache.openjpa.jdbc.sql.identifier.MakeIdentifierValidTest</param>
+                            </targetTests>
+                            <avoidCallsTo>
+                                <avoidCallsTo>java.util.logging</avoidCallsTo>
+                                <avoidCallsTo>org.apache.log4j</avoidCallsTo>
+                                <avoidCallsTo>org.slf4j</avoidCallsTo>
+                                <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
+                            </avoidCallsTo> 
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>mutuation-coverage</id>
+                                <goals>
+                                    <goal>mutationCoverage</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        </profiles>
 </project>

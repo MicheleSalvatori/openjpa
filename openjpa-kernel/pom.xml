@@ -37,6 +37,7 @@
 
     <properties>
         <automatic-module-name>org.apache.openjpa.kernel</automatic-module-name>
+        <sonar.coverage.jacoco.xmlReportPaths>${basedir}/../${aggregate.report.dir}</sonar.coverage.jacoco.xmlReportPaths>
     </properties>
     <dependencies>
         <dependency>
@@ -162,6 +163,7 @@
                     </execution>
                 </executions>
             </plugin>
+            
         </plugins>
         <pluginManagement>
         	<plugins>
@@ -218,5 +220,45 @@
         	</plugins>
         </pluginManagement>
     </build>
+    
+    <profiles>
+     <profile>
+            <id>pit-test</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.pitest</groupId>
+                        <artifactId>pitest-maven</artifactId>
+                        <version>1.5.2</version>
+                        <configuration>
+                        	<verbose>true</verbose>
+                            <targetClasses>
+                                <param>org.apache.openjpa.util.ProxyManagerImpl</param>
+                            </targetClasses>
+                            <targetTests>
+                                <param>org.apache.openjpa.util.CopyArrayProxyTest</param>
+                                <param>org.apache.openjpa.util.NewProxyTest</param>
+                                <param>org.apache.openjpa.util.FindCopyConstructorProxyTest</param>
+                            </targetTests>
+                             <avoidCallsTo>
+                                <avoidCallsTo>java.util.logging</avoidCallsTo>
+                                <avoidCallsTo>org.apache.log4j</avoidCallsTo>
+                                <avoidCallsTo>org.slf4j</avoidCallsTo>
+                                <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
+                            </avoidCallsTo> 
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>mutuation-coverage</id>
+                                <goals>
+                                    <goal>mutationCoverage</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>

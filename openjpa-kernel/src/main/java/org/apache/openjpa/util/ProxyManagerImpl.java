@@ -1636,7 +1636,6 @@ public class ProxyManagerImpl
             // quit immediately on exact match
             if (params[0] == cls)
                 return con;
-
             if (params[0].isAssignableFrom(cls) && (matchParam == null
                     || matchParam.isAssignableFrom(params[0]))) {
                 // track most derived collection constructor

@@ -103,6 +103,7 @@
                 <groupId>org.apache.openjpa</groupId>
                 <artifactId>openjpa-maven-plugin</artifactId>
                 <configuration>
+                	<skip>true</skip>
                     <includes>org/apache/openjpa/integration/jmx/*.class</includes>
                     <addDefaultConstructor>true</addDefaultConstructor>
                     <enforcePropertyRestrictions>true</enforcePropertyRestrictions>

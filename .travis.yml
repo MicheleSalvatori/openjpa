@@ -9,5 +9,4 @@ addons:
     token: "a76a524c2b30f8e6acfdbdae2e59e6166947b145"
      
 script:
-   #- mvn clean verify -DskipTests sonar:sonar -Dsonar.projectKey=MicheleSalvatori_openjpa -Pjava11
-   - mvn "-Dtest=org/apache/openjpa/jdbc/tests/*Test" -DfailIfNoTests=false clean verify -e org.jacoco:jacoco-maven-plugin:prepare-agent sonar:sonar -Dsonar.projectKey=MicheleSalvatori_openjpa -Pjava11
+   - mvn clean verify -e org.jacoco:jacoco-maven-plugin:prepare-agent sonar:sonar -Dsonar.projectKey=MicheleSalvatori_openjpa -Pjava11

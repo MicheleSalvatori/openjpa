@@ -21,6 +21,7 @@ package org.apache.openjpa.lib.conf;
 import static java.util.Optional.ofNullable;
 
 import java.security.AccessController;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -63,13 +64,16 @@ public class ClassListValue extends Value {
 
         final ClassLoader loader = AccessController.doPrivileged(J2DoPrivHelper.getContextClassLoaderAction());
         set(ofNullable(StringUtil.split(val, ",", 0))
-                .map(it -> Stream.of(it).map(v -> {
-                    try {
-                        return loader.loadClass(v.trim());
-                    } catch (final ClassNotFoundException e) {
-                        throw new IllegalStateException(e);
-                    }
-                }).toArray(Class<?>[]::new))
+                .map(it -> Stream.of(it).map(new Function<String, Class<?>>() {
+					@Override
+					public Class<?> apply(String v) {
+					    try {
+					        return loader.loadClass(v.trim());
+					    } catch (final ClassNotFoundException e) {
+					        throw new IllegalStateException(e);
+					    }
+					}
+				}).toArray(Class<?>[]::new))
                 .orElse(null));
     }
 
