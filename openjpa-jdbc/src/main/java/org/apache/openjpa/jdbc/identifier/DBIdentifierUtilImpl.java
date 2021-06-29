@@ -393,7 +393,7 @@ public class DBIdentifierUtilImpl extends IdentifierUtilImpl implements DBIdenti
         int extraChars = -max + tname.getName().length() + 1 // <tname> + '_'
             + cname.getName().length() + 4; // <cname> + '_SEQ'
         String tsname = tname.getName();
-        if (extraChars >= 0) {
+        if (extraChars > 0) {
             // this assumes that tname is longer than extraChars
             tsname = tsname.substring(0, tsname.length() - extraChars);
         }
