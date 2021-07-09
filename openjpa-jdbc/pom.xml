@@ -115,9 +115,9 @@
                                 <param>org.apache.openjpa.jdbc.identifier.DBIdentifierUtilImpl</param>
                             </targetClasses>
                             <targetTests>
-                                <param>org.apache.openjpa.jdbc.sql.identifier.AppendColumnsTest</param>
-                                <param>org.apache.openjpa.jdbc.sql.identifier.GenerateKeySequenceNameTest</param>
-                                <param>org.apache.openjpa.jdbc.sql.identifier.MakeIdentifierValidTest</param>
+                                <param>org.apache.openjpa.jdbc.identifier.AppendColumnsTest</param>
+                                <param>org.apache.openjpa.jdbc.identifier.GenerateKeySequenceNameTest</param>
+                                <param>org.apache.openjpa.jdbc.identifier.MakeIdentifierValidTest</param>
                             </targetTests>
                             <avoidCallsTo>
                                 <avoidCallsTo>java.util.logging</avoidCallsTo>

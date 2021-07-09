@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.openjpa.jdbc.sql.identifier;
+package org.apache.openjpa.jdbc.identifier;
 
 import java.util.HashMap;
 import java.util.Map;

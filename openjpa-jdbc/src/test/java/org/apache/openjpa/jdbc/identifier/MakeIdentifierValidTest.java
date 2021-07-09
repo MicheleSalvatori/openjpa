@@ -1,8 +1,8 @@
-package org.apache.openjpa.jdbc.sql.identifier;
+package org.apache.openjpa.jdbc.identifier;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-import java.security.cert.CertificateNotYetValidException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -10,21 +10,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.openjpa.jdbc.identifier.DBIdentifier;
 import org.apache.openjpa.jdbc.identifier.DBIdentifier.DBIdentifierType;
-import org.apache.openjpa.jdbc.identifier.DBIdentifierUtilImpl;
-import org.apache.openjpa.jdbc.identifier.DefaultIdentifierConfiguration;
-import org.apache.openjpa.jdbc.sql.identifier.IdConfigurationTestImpl;
 import org.apache.openjpa.jdbc.schema.NameSet;
-import org.apache.openjpa.jdbc.schema.Schema;
 import org.apache.openjpa.jdbc.schema.SchemaGroup;
-import org.apache.openjpa.jdbc.schema.Table;
 import org.apache.openjpa.lib.identifier.IdentifierConfiguration;
-import org.apache.openjpa.lib.identifier.IdentifierRule;
-import org.apache.openjpa.jdbc.identifier.QualifiedDBIdentifier;
-import org.apache.openjpa.util.ImplHelper;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;

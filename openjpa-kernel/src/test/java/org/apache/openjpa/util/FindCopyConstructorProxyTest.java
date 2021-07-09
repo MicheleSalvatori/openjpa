@@ -56,8 +56,8 @@ public class FindCopyConstructorProxyTest {
 			{null, NullPointerException.class, null},
 			
 			// Adequacy
-			{HashMap.class, null, hashMapConstructor},
-			{SuperClass.class, null, superClassConstructor},
+//			{HashMap.class, null, hashMapConstructor},
+//			{SuperClass.class, null, superClassConstructor},
 		});
 	}
 	

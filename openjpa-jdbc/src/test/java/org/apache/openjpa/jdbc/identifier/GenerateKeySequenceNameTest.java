@@ -1,4 +1,4 @@
-package org.apache.openjpa.jdbc.sql.identifier;
+package org.apache.openjpa.jdbc.identifier;
 
 import static org.junit.Assert.assertEquals;
 
