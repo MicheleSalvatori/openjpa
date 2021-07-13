@@ -1,24 +1,11 @@
 package org.apache.openjpa.util;
 
 import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.List;
-import java.util.NavigableSet;
-import java.util.SortedSet;
-import java.util.TreeMap;
-import java.util.TreeSet;
 
-import org.apache.openjpa.enhance.PersistenceCapable;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -36,6 +23,7 @@ public class CopyArrayProxyTest {
 	
 	private Class<? extends Exception> expectedException;
 	
+	@SuppressWarnings("deprecation")
 	@Rule
 	public ExpectedException exceptionRule = ExpectedException.none();
 	
@@ -50,7 +38,8 @@ public class CopyArrayProxyTest {
 		String[] list = new String[] {"1", "2"};
 		
 		return Arrays.asList(new Object[][] {
-			// Test Suite minimale
+//			Test Suite minimale
+//			array, expectedException
 			{null, null},
 			{new String(), UnsupportedException.class},
 			{list, null}
@@ -75,7 +64,7 @@ public class CopyArrayProxyTest {
 		if (array != null) {
 			assertArrayEquals((Object[]) array, (Object[])clonedArray);
 		}else{
-			assertNull(clonedArray);
+			assertNull(clonedArray);					// Nel caso in cui il metodo non riesce a proxare l'array, ritorna nulla
 		}
 		
 	}

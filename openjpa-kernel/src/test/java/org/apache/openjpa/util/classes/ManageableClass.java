@@ -4,6 +4,9 @@ import org.apache.openjpa.enhance.FieldSupplier;
 import org.apache.openjpa.enhance.PersistenceCapable;
 import org.apache.openjpa.enhance.StateManager;
 
+/*
+ * Implementazione PersistenceCapable creata per NewCustomProxyTest
+ */
 public final class ManageableClass implements PersistenceCapable {
 	
 	public ManageableClass(){

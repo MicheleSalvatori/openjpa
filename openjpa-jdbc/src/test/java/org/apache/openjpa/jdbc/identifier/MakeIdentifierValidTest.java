@@ -29,16 +29,14 @@ public class MakeIdentifierValidTest {
 	private static IdentifierConfiguration conf;
 	private SchemaGroup nameSet;
 	
-	private InputParameters inputEntity;
 	private int identifierLenght;
+	private InputParameters inputEntity;
 	private Class<? extends Exception> exceptionExpected;
 	
 	@SuppressWarnings("deprecation")
 	@Rule
 	public ExpectedException exceptionRule = ExpectedException.none();
 	
-	// public DBIdentifier makeIdentifierValid(DBIdentifier sname, NameSet set, int
-	// maxLen, boolean checkForUniqueness)
 	public MakeIdentifierValidTest(InputParameters input) {
 		this.inputEntity = input;
 		if (this.inputEntity.isNull()) {
@@ -66,7 +64,7 @@ public class MakeIdentifierValidTest {
 //
 //		// Adequacy
 		DBIdentifier sequenceIdentifier = DBIdentifier.newSequence("testingSequence");
-//		
+		
 		parameters.add(new InputParameters(sequenceIdentifier, true, sequenceIdentifier.getName().length()+1, true, "TESTINGSEQUENCE1"));
 		parameters.add(new InputParameters(DBIdentifier.newColumn("testingColumn"), true, 255, true, "TESTINGCOLUMN1"));		// viene normalizzato quando si appende 1
 		parameters.add(new InputParameters(DBIdentifier.newColumn("\"testingColumn\""), false, 255, false, "\"testingcolumn\"", "LOWER_CASE"));
@@ -85,7 +83,7 @@ public class MakeIdentifierValidTest {
 		nameSet = null;
 		conf = new IdConfigurationTestImpl(inputEntity.getFormat());
 		
-		// Setting configuration with a reserverWord 
+		// Setup configurazione con reserverWords
 		Set<String> reservedWords = new HashSet<String>(Arrays.asList("TABLEISW2", "TESTINGTABLEISW2"));
 		conf.getDefaultIdentifierRule().setReservedWords(reservedWords);
 		
@@ -142,6 +140,10 @@ public class MakeIdentifierValidTest {
 		
 	}
 	
+	
+	/*
+	 * Classe ausiliaria per passaggio parametri
+	 */
 	
 	private static class InputParameters{
 		private DBIdentifier identifier;

@@ -7,8 +7,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import org.apache.openjpa.jdbc.identifier.DBIdentifier;
-import org.apache.openjpa.jdbc.identifier.DBIdentifierUtilImpl;
 import org.apache.openjpa.jdbc.schema.Column;
 import org.junit.Before;
 import org.junit.Test;
@@ -60,6 +58,7 @@ public class AppendColumnsTest {
 		utilImpl = new DBIdentifierUtilImpl(new IdConfigurationTestImpl());
 		names = new ArrayList<>();
 		
+		// Setup lista nomi sequenze per verifica test
 		if (columns != null && !emptyArray) {
 			for (int i=0; i<columns.length; i++) {
 					names.add("col_"+i);
@@ -75,6 +74,7 @@ public class AppendColumnsTest {
 		
 		StringBuilder expectedString = new StringBuilder();
 		
+		// Costruzione nome finale atteso
 		if (columns != null && !emptyArray) {
 			expectedString.append(names.get(0));
 			names.remove(0);

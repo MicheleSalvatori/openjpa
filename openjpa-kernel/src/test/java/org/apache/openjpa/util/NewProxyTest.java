@@ -65,12 +65,14 @@ public class NewProxyTest {
 		
 		return Arrays.asList(new Object[][] {
 			// Test Suite minimale
+			
+//				object, autoOff
 				{ proxableClass, false},
 				{ new NonProxableClass(), true},
 				{ null, true},
 				
 			// Adeguacy
-//				
+				
 				{proxy, true},
 				{hashMap, true},
 				{new Date(), true},

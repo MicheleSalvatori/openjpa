@@ -5,6 +5,11 @@ import java.awt.List;
 
 import org.apache.openjpa.util.ImplHelper;
 
+/*
+ * Classe creata per FindCopyConstructorProxyTest
+ * Implementa diversi costruttori per simulare un determinato caso gestito dal metodo testato
+ * Creata per aumentare risultati coverage
+ */
 @SuppressWarnings("serial")
 public class SuperClass extends List{
 	private int val;

@@ -5,8 +5,6 @@ import static org.junit.Assert.assertEquals;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.apache.openjpa.jdbc.identifier.DBIdentifier;
-import org.apache.openjpa.jdbc.identifier.DBIdentifierUtilImpl;
 import org.apache.openjpa.jdbc.schema.Column;
 import org.apache.openjpa.jdbc.schema.Schema;
 import org.apache.openjpa.jdbc.schema.SchemaGroup;
@@ -24,7 +22,7 @@ import org.junit.runners.Parameterized.Parameters;
 public class GenerateKeySequenceNameTest {
 	private static DBIdentifierUtilImpl utilImpl;
 	private static IdentifierConfiguration config;
-	private static String SEQ = "SEQ";
+	private static String SEQ = "SEQ";				//Identificatore sequenza
 	
 	private Column col;
 	private int maxLen;
@@ -48,19 +46,21 @@ public class GenerateKeySequenceNameTest {
 	
 	@Parameters
 	public static Collection<?> getParameters(){
-		int rightLen = 24;		// lenght("tableTest_columnTest_SEQ")
+		int rightLen = 24;									// lenght("tableTest_columnTest_SEQ")
 		boolean validInstance = true;
 		return Arrays.asList(new Object[][] {
 				
-			// Test Suite minimale
-				{new Column(), 1, StringIndexOutOfBoundsException.class, true},
-				{null, -1, NullPointerException.class, false},
-				{new Column(), 0, NullPointerException.class, false},
-				{new Column(), rightLen, null, true},
-				{new Column(), rightLen+1, null, true},
+//				Test Suite minimale
+
+//				col, maxLen, expectedException, validInstance				
+				{new Column(), 1, StringIndexOutOfBoundsException.class, validInstance},
+				{null, -1, NullPointerException.class, !validInstance},
+				{new Column(), 0, NullPointerException.class, !validInstance},
+				{new Column(), rightLen, null, validInstance},
+				{new Column(), rightLen+1, null, validInstance},
 				
-			// Adequacy
-				{new Column(), rightLen-1, null, true},
+//				Adequacy
+				{new Column(), rightLen-1, null, validInstance},
 				
 		});
 	}
@@ -75,6 +75,7 @@ public class GenerateKeySequenceNameTest {
 		table = new Table(DBIdentifier.newTable("tableTest"), schema);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testGenerateSequence() {
 		
@@ -89,14 +90,14 @@ public class GenerateKeySequenceNameTest {
 			}
 		}
 		
-		
 		String tableName = table.getIdentifier().getName();
 		String columnName = col.getIdentifier().getName();
 		
 		DBIdentifier sequenceGenerated = utilImpl.getGeneratedKeySequenceName(col, maxLen);
-		String expectedSequenceName = String.format("%s_%s_%s", tableName, columnName, SEQ);
+		String expectedSequenceName = String.format("%s_%s_%s", tableName, columnName, SEQ);		// Costruzione nome finale atteso
 		
-		if (maxLen < expectedSequenceName.length()) {				// jacoco
+//		Aggiunto dopo analisi coverage
+		if (maxLen < expectedSequenceName.length()) {				
 			tableName = tableName.substring(0, tableName.length()-(expectedSequenceName.length() - maxLen));
 			expectedSequenceName = String.format("%s_%s_%s", tableName, columnName, SEQ);
 		}

@@ -24,7 +24,6 @@ import java.util.Map;
 import org.apache.openjpa.lib.identifier.IdentifierConfiguration;
 import org.apache.openjpa.lib.identifier.IdentifierRule;
 import org.apache.openjpa.lib.identifier.IdentifierUtil;
-import org.hamcrest.core.StringEndsWith;
 
 public class IdConfigurationTestImpl implements IdentifierConfiguration {
 	

@@ -9,9 +9,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.security.auth.kerberos.KerberosKey;
-import javax.security.auth.kerberos.KerberosPrincipal;
-
 import org.apache.openjpa.util.classes.FinalClass;
 import org.apache.openjpa.util.classes.SuperClass;
 import org.junit.Before;
@@ -56,8 +53,8 @@ public class FindCopyConstructorProxyTest {
 			{null, NullPointerException.class, null},
 			
 			// Adequacy
-//			{HashMap.class, null, hashMapConstructor},
-//			{SuperClass.class, null, superClassConstructor},
+			{HashMap.class, null, hashMapConstructor},
+			{SuperClass.class, null, superClassConstructor},
 		});
 	}
 	
